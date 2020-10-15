@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <!-- namespace 用来定位具体是哪一个mapper文件的东西,不能与其他mapper的namespace重复 -->
+<mapper namespace="com.zhiyou.dao.UserDao">
+	<insert id="add" parameterType="user">
+		insert into user values(#{id},#{name},#{password},#{qian},#{date})
+	</insert>
+	
+	<delete id="delete" parameterType="int" >
+		delete from user where id=#{aysufdujsdgsdhfgkjdfhgkj};
+	</delete>
+
+	<update id="update" parameterType="user">
+		update user
+		<set>
+			<if test="name!=null">
+			 username=#{name}
+			</if>
+			<if test=" password!=null">
+			 ,password=#{password}
+			</if>
+			<if test="qian!=null">
+			 ,qian=#{qian},
+			</if>
+			<if test="date!=null">
+			,date=#{date}
+			</if>
+		</set>	
+		 where id=#{id}
+	</update>
+	
+	<resultMap type="user" id="userMap">
+		<id column="id" property="id"/>
+		<result column="username" property="name"/>
+		<result column="password" property="password"/>
+		<result column="qian" property="qian"/>
+		<result column="date" property="date"/>
+	</resultMap>
+		
+	<select id="select" resultMap="userMap">
+		select * from user
+	</select>
+	
+
+	<select id="selectById" resultMap="userMap">
+		select * from user where id=#{idddd}
+	</select>
+	
+</mapper>

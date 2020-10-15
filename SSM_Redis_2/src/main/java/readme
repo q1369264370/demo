@@ -1,0 +1,15 @@
+SSM整合Redis二：(主要依赖于Spring的缓存管理)
+1：下载redis.clients,spring-data-redis 依赖
+2：准备redis.properties属性文件
+3: 编写spring配置文件(
+	3.1：引入redis.properties
+	3.2：配置redis连接池
+	3.3: 配置redis连接
+	3.4: 配置redis操作模板
+)
+4：编写redis缓存配置类
+5：在service中使用注解来实现缓存功能
+
+
+优点：由于缓存不依赖于持久层框架,所以更改持久层框架的话不需要重写缓存。
+缺点：哪些方法需要使用缓存,哪些方法需要更新缓存,缓存的key等等都需要我们手动维护。
